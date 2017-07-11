@@ -35,18 +35,28 @@
 				       (:div :class "msg")
 				       (:script "
 $(function () {
-  var ws = new WebSocket('ws://localhost:5000/echo');
-  $('.send').click(function (){
-    console.log('clicked');
-    ws.send(JSON.stringify({message:'Hi'}));
-  });
-  ws.onmessage = function(event) {
-    console.log('Message', event.data);
-    var f = $('.msg');
-    var msg = JSON.parse(event.data);
-    var tmpl = `<div> ${msg.message} </div>`;
-    f.append(tmpl);
+  var connect = function () {
+    var ws = new WebSocket('ws://localhost:5000/echo');
+    $('.send').click(function (){
+      console.log('clicked');
+      ws.send(JSON.stringify({message:'Hi'}));
+    });
+    ws.onmessage = function(event) {
+      console.log('Message', event.data);
+      var f = $('.msg');
+      var msg = JSON.parse(event.data);
+      var tmpl = `<div> ${msg.message} </div>`;
+      f.append(tmpl);
+    };
+    ws.onclose = function (e){
+      setTimeout(function(){
+	console.log('WebSocket: reconnecting...');
+	connect();
+      },1000);
+    };
   };
+
+    connect();
 });
 ")))))))))
 
