@@ -17,7 +17,7 @@ In browser:
 http://localhost:5000/
 
 ## Bug 1
-Then relaod, and you can see a **"connected"** message in the repl, but no **"disconnect"**.
+Then relaod your browser, and you can see a **"connected"** message in the repl, but no **"disconnect"**. There should be a "disconnect" message before the "connected" message.
 
 ## Bug 2
 When you have fixed Bug 1
@@ -54,6 +54,10 @@ For now see:
 
 ## Bug 4 (event emitter bug)
 description comes later
+
+For now see:
+
+[fukamachi/event-emitter#4](https://github.com/fukamachi/event-emitter/issues/4)
 
 ## Author
 
