@@ -32,6 +32,10 @@ Maybe bug 1, can be fixed by fixing bug 2.
 ## Bug 3  (upgrade on: "connection" = "keep-alive, Upgrade")
 description comes later
 
+For now see:
+
+fukamachi/websocket-driver#24
+
 ## Bug 4 (event emitter bug)
 description comes later
 
