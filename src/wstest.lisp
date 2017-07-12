@@ -3,15 +3,20 @@
   (:use :cl :websocket-driver :cl-who :lack))
 (in-package :wstest)
 
-(defvar *echo-server*
+(defparameter *echo-server*
   (lambda (env)
     (let ((ws (make-server env)))
-      (log:info "connected")
+      (log:info "Connected")
       (on :message ws
 	  (lambda (message)
+	    (log:info 'message message)
 	    (send ws message)))
       (on :close ws (lambda (&rest args)
 		      (log:info "Closed" args)))
+      (on :error ws (lambda (&rest args)
+		      (log:info "Error" args)))
+      (on :open ws (lambda (&rest args)
+		     (log:info "Open" args)))
       (lambda (responder)
 	(declare (ignore responder))
 	(start-connection ws)))))
