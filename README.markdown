@@ -29,6 +29,21 @@ Reload browser, and then again you can see the **"connected"** message, but no *
 
 Maybe bug 1, can be fixed by fixing bug 2.
 
+If this is a problem you can do this:
+
+``` cl
+(let ((pinger nil))
+  (setf pinger (trivial-timers:make-timer (lambda ()
+					    (handler-case
+						(wsd:send-ping ws nil)
+					      (error (e)
+						(trivial-timers:unschedule-timer pinger))))))
+
+  (trivial-timers:schedule-timer pinger 20 :repeat-interval 20)
+  (wsd:once  :close ws (lambda (&rest args)
+			 (trivial-timers:unschedule-timer pinger))))
+```
+
 ## Bug 3  (upgrade on: "connection" = "keep-alive, Upgrade")
 description comes later
 
