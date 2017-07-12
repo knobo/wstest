@@ -55,6 +55,10 @@ For now see:
 ## Bug 4 (event emitter bug)
 description comes later
 
+For now see:
+
+[fukamachi/event-emitter#4](https://github.com/fukamachi/event-emitter/issues/4)
+
 ## Author
 
 * knobo
