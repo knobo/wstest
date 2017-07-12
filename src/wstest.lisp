@@ -11,7 +11,7 @@
 	  (lambda (message)
 	    (send ws message)))
       (on :close ws (lambda (&rest args)
-		      (log:info "Closed" args)))
+		      (log:info "disconnected" args)))
       (lambda (responder)
 	(declare (ignore responder))
 	(start-connection ws)))))
