@@ -34,7 +34,8 @@ description comes later
 
 For now see:
 
-fukamachi/websocket-driver#24
+[fukamachi/websocket-driver#24](https://github.com/fukamachi/websocket-driver/issues/24)
+
 
 ## Bug 4 (event emitter bug)
 description comes later
