@@ -21,7 +21,8 @@
                :lack
                :clack
                :lack-middleware-mount
-               :log4cl)
+               :log4cl
+	       :jonathan)
   :components ((:module "src"
                 :components
                 ((:file "wstest"))))

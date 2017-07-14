@@ -53,7 +53,7 @@ For now see:
 
 
 ## Bug 4 (event emitter bug)
-description comes later
+Might not be a bug after all.
 
 For now see:
 
